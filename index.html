@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-AO">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>JTech Solutions – Criação de sites para empresas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#F5F7FC; --surface:#FFFFFF; --ink:#0E1630; --muted:#4A5575; --line:#D9DFEF;
+  --blue:#1668D9; --blue-ink:#FFFFFF; --sun:#9CCBFF;
+  --head:"Bricolage Grotesque","Trebuchet MS",sans-serif; --body:"Figtree","Segoe UI",Arial,sans-serif;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){--bg:#0B1226;--surface:#131C38;--ink:#EEF1FB;--muted:#A9B3D1;--line:#26315A;--blue:#6C8CFF;--blue-ink:#0B1226;}
+}
+:root[data-theme="dark"]{--bg:#0B1226;--surface:#131C38;--ink:#EEF1FB;--muted:#A9B3D1;--line:#26315A;--blue:#6C8CFF;--blue-ink:#0B1226;}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.0625rem/1.6 var(--body)}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sun);outline-offset:3px}
+.wrap{max-width:68rem;margin:0 auto;padding:0 1.25rem}
+header{display:flex;justify-content:space-between;align-items:center;padding:1.25rem 0}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--ink)}
+.logo svg{height:2.4rem;width:auto;flex:none}
+.logo .nm{display:flex;flex-direction:column;line-height:1;font:600 1.5rem var(--head);letter-spacing:.03em}
+.logo .nm small{font:400 .6rem var(--body);letter-spacing:.34em;margin-top:.3rem}
+nav a{margin-left:1.25rem;text-decoration:none;color:var(--muted);font-weight:600}
+nav a:hover{color:var(--ink)}
+@media(max-width:47.999rem){
+  header{align-items:flex-start;flex-wrap:wrap;gap:.9rem}
+  nav{width:100%;display:flex;gap:.35rem;overflow-x:auto;padding:.15rem 0 .25rem;scrollbar-width:none}
+  nav::-webkit-scrollbar{display:none}
+  nav a{flex:none;margin:0;padding:.45rem .7rem;border:1px solid var(--line);border-radius:2rem;background:var(--surface);white-space:nowrap}
+  .logo .nm{font-size:1.35rem}
+  .hero{padding-top:1.5rem}
+  .btn{max-width:100%;text-align:center}
+  .btn.alt{margin:.65rem 0 0}
+  .contact .btn.alt{margin:.65rem 0 0}
+  .contact{overflow-wrap:anywhere}
+  .price{padding:1.35rem}
+  .price .amt{font-size:2.2rem}
+}
+@media(max-width:22rem){
+  .wrap{padding-inline:.9rem}
+  h1{font-size:2.25rem}
+  .btn,.contact .btn{display:block;width:100%}
+  .logo svg{height:2.1rem}
+}
+.hero{display:grid;gap:2.5rem;padding:2.5rem 0 4rem;align-items:center}
+@media(min-width:56rem){.hero{grid-template-columns:1.1fr .9fr}}
+h1{font:800 clamp(2.4rem,6vw,4rem)/1.04 var(--head);letter-spacing:-.03em;margin:0 0 1.25rem}
+.lead{color:var(--muted);max-width:34rem;margin:0 0 1.75rem}
+.btn{display:inline-block;background:var(--blue);color:var(--blue-ink);font-weight:600;text-decoration:none;padding:.9rem 1.5rem;border-radius:.6rem}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--line);margin-left:.5rem}
+.browser{background:var(--surface);border:1px solid var(--line);border-radius:.9rem;overflow:hidden;box-shadow:0 1.5rem 3rem -1.5rem rgba(14,22,48,.35)}
+.bar{display:flex;gap:.4rem;align-items:center;padding:.7rem .9rem;border-bottom:1px solid var(--line)}
+.bar i{width:.65rem;height:.65rem;border-radius:50%;background:var(--line)}
+.bar span{margin-left:.6rem;flex:1;background:var(--bg);border-radius:.4rem;padding:.15rem .6rem;font-size:.8rem;color:var(--muted)}
+.page{padding:1.5rem}
+.page h3{font:800 1.4rem/1.15 var(--head);margin:0 0 .5rem}
+.page p{margin:0 0 1rem;color:var(--muted);font-size:.95rem}
+.page .fake{display:inline-block;background:var(--blue);color:var(--blue-ink);padding:.45rem 1rem;border-radius:.4rem;font-size:.85rem;font-weight:600}
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1.25rem}
+.blocks div{height:3.2rem;border-radius:.5rem;background:var(--bg);border:1px solid var(--line)}
+.blocks div:first-child{background:var(--sun);border-color:var(--sun)}
+section{padding:4rem 0;border-top:1px solid var(--line)}
+h2{font:800 clamp(1.7rem,4vw,2.4rem)/1.1 var(--head);letter-spacing:-.02em;margin:0 0 2rem}
+.svc{display:grid;gap:0}
+.svc div{display:grid;gap:.25rem 2rem;padding:1.25rem 0;border-bottom:1px solid var(--line)}
+@media(min-width:48rem){.svc div{grid-template-columns:16rem 1fr}}
+.svc dt{font:800 1.2rem var(--head)}
+.svc dd{margin:0;color:var(--muted);max-width:40rem}
+.steps{list-style:none;margin:0;padding:0;display:grid;gap:1.5rem;counter-reset:s}
+@media(min-width:48rem){.steps{grid-template-columns:repeat(4,1fr)}}
+.steps li{counter-increment:s;border-top:4px solid var(--blue);padding-top:1rem}
+.steps li::before{content:counter(s);font:800 2rem var(--head);color:var(--blue)}
+.steps b{display:block;font:800 1.1rem var(--head);margin:.25rem 0}
+.steps span{color:var(--muted)}
+.prices{display:grid;gap:1.25rem}
+@media(min-width:48rem){.prices{grid-template-columns:repeat(2,1fr)}}
+.price{background:var(--surface);border:1px solid var(--line);border-radius:1rem;padding:1.75rem}
+.price:first-child{border:2px solid var(--blue)}
+.price h3{font:800 1.2rem var(--head);margin:0 0 .5rem}
+.price .amt{font:800 2.6rem/1 var(--head);letter-spacing:-.02em;margin:0 0 .75rem;color:var(--blue)}
+.price p{color:var(--muted);margin:0 0 1.25rem}
+.price .amt{color:var(--blue)}
+.contact{background:var(--blue);color:var(--blue-ink);border-radius:1.2rem;padding:2.5rem 1.5rem;margin:0 0 4rem}
+.contact h2{margin-bottom:.75rem}
+.contact p{margin:0 0 1.5rem;max-width:34rem}
+.contact .btn{background:var(--sun);color:#0E1630}
+.contact .btn.alt{background:transparent;color:inherit;border-color:currentColor}
+.cf{display:grid;gap:1rem;max-width:34rem;margin-bottom:1.5rem}
+.cf label{display:grid;gap:.35rem;font-weight:600}
+.cf input,.cf textarea{font:400 1rem var(--body);padding:.75rem .9rem;border:0;border-radius:.5rem;background:#fff;color:#0E1630;width:100%}
+.cf button.btn{border:0;font:600 1rem var(--body);cursor:pointer}
+.cf .btn.alt{margin-left:.5rem}
+.cf #cfmsg{margin:0;min-height:1.5rem}
+footer{padding:0 0 2rem;color:var(--muted);font-size:.9rem}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="logo" href="#" aria-label="JTech Solutions"><svg viewBox="0 0 40 40" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M37 2v36M37 6H11M37 13H23M4 20h12M9 26h8l5-5h15M18 31h19M8 35h29"/><g fill="var(--blue)" stroke="none"><circle cx="9" cy="6" r="2.8"/><circle cx="21" cy="13" r="2.8"/><circle cx="4" cy="20" r="2.8"/><circle cx="17" cy="20" r="1.8"/><circle cx="8" cy="26" r="2.8"/><circle cx="17" cy="31" r="2.8"/><circle cx="7" cy="35" r="2.8"/></g></svg><span class="nm">JTECH<small>SOLUTIONS</small></span></a>
+    <nav aria-label="Navegação principal"><a href="#servicos">Serviços</a><a href="#precos">Preços</a><a href="#processo">Como trabalhamos</a><a href="#contacto">Contacto</a></nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <h1>A sua empresa online, com um site que traz clientes.</h1>
+        <p class="lead">Criamos sites rápidos, bonitos e fáceis de ver no telemóvel, para que quem procura o seu negócio o encontre e lhe escreva.</p>
+        <a class="btn" href="#contacto">Pedir orçamento</a><a class="btn alt" href="#servicos">Ver serviços</a>
+      </div>
+      <div class="browser" aria-hidden="true">
+        <div class="bar"><i></i><i></i><i></i><span>www.suaempresa.ao</span></div>
+        <div class="page">
+          <h3>Padaria Estrela</h3>
+          <p>Pão fresco todos os dias. Encomende pelo WhatsApp.</p>
+          <span class="fake">Fazer encomenda</span>
+          <div class="blocks"><div></div><div></div><div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <section id="servicos">
+      <h2>O que fazemos pela sua empresa</h2>
+      <dl class="svc">
+        <div><dt>Site para empresas</dt><dd>Apresenta o seu negócio, os seus serviços e os seus contactos numa página clara que os clientes percebem logo.</dd></div>
+        <div><dt>Loja online</dt><dd>Mostre os seus produtos e receba pedidos diretamente no site ou no WhatsApp.</dd></div>
+        <div><dt>Adaptado ao telemóvel</dt><dd>Todos os sites funcionam bem em telemóvel, tablet e computador.</dd></div>
+        <div><dt>Domínio e alojamento</dt><dd>Tratamos do endereço do site e de o manter sempre no ar.</dd></div>
+        <div><dt>Manutenção e alterações</dt><dd>Mudamos textos, fotos e preços quando precisar, sem complicações.</dd></div>
+      </dl>
+    </section>
+
+    <section id="precos">
+      <h2>Preços</h2>
+      <div class="prices">
+        <div class="price"><h3>Criação de site</h3><p class="amt">15.000 Kz</p><p>Criamos o site da sua empresa, pronto a usar no telemóvel e no computador.</p><a class="btn" href="#contacto">Pedir este serviço</a></div>
+        <div class="price"><h3>Manutenção</h3><p class="amt">10.000 Kz<small style="font:600 1rem var(--body);letter-spacing:0"> por mês</small></p><p>Mantemos o site no ar e fazemos as alterações de que precisar.</p><a class="btn alt" style="margin-left:0" href="#contacto">Pedir este serviço</a></div>
+      </div>
+    </section>
+
+    <section id="processo">
+      <h2>Como trabalhamos</h2>
+      <ol class="steps">
+        <li><b>Conversamos</b><span>Percebemos o seu negócio e o que quer que o site faça.</span></li>
+        <li><b>Desenhamos</b><span>Mostramos como o site vai ficar antes de o construir.</span></li>
+        <li><b>Construímos</b><span>Criamos o site com os seus textos, fotos e contactos.</span></li>
+        <li><b>Publicamos</b><span>Colocamos o site no ar e ensinamos a usá-lo.</span></li>
+      </ol>
+    </section>
+
+    <section id="contacto" style="border:0;padding-bottom:0">
+      <div class="contact">
+        <h2>Vamos criar o site da sua empresa?</h2>
+        <p>Diga-nos o que a sua empresa faz e enviamos uma proposta.</p>
+        <a class="btn" href="https://wa.me/244963689495">Falar no WhatsApp</a><a class="btn alt" href="mailto:jerseyarmandoneto@gmail.com">Enviar email</a>
+        <p style="margin:1.25rem 0 0">WhatsApp: +244 963 689 495<br>Email: jerseyarmandoneto@gmail.com</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 JTech Solutions. Todos os direitos reservados.</footer>
+</div>
+</body>
+</html>
